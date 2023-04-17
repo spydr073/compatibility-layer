@@ -160,7 +160,7 @@
       grep -E '^(>>> Installing|\\* )'
   changed_when: true
   args:
-    executable: "/usr/bin/env bash"
+    executable: "/usr/bin/bash"
   environment:
     STOP_BOOTSTRAP_AFTER: stage3
   tags:
@@ -182,7 +182,7 @@
       grep -E '^(>>> Installing|\\* )'
   changed_when: true
   args:
-    executable: "/usr/bin/env bash"
+    executable: "/usr/bin/bash"
   tags:
     - build_prefix
 
