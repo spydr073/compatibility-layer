@@ -12,6 +12,8 @@
     package: sys-libs/glibc
     noreplace: false
     oneshot: true
+  vars:
+    ansible_python_interpreter: "{{ gentoo_prefix_path }}/usr/bin/python3"
   environment:
     EXTRA_EMAKE: "user-defined-trusted-dirs={{ prefix_user_defined_trusted_dirs | join(':') }}"
   when:

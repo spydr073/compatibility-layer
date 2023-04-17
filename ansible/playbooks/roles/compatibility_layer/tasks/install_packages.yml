@@ -4,6 +4,8 @@
   community.general.portage:
     package: "@{{ item }}"
     state: present
+  vars:
+    ansible_python_interpreter: "{{ gentoo_prefix_path }}/usr/bin/python3"
   with_items: "{{ package_sets }}"
   tags:
     - set
@@ -12,4 +14,6 @@
   community.general.portage:
     package: "{{ item }}"
     state: present
+  vars:
+    ansible_python_interpreter: "{{ gentoo_prefix_path }}/usr/bin/python3"
   with_items: "{{ prefix_packages }}"
