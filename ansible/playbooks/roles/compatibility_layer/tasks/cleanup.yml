@@ -1,9 +1,16 @@
 # Clean up
 ---
-- name: Remove redundant packages
+
+- name: "Clean unused dependencies."
+  ansible.builtin.shell: "emerge --depclean --with-bdeps=n"
+
+  
+- name: "Remove redundant packages"
   community.general.portage:
     package: "{{ item }}"
     state: absent
+  with_items: "{{ prefix_remove_packages }}"
   vars:
     ansible_python_interpreter: "{{ gentoo_prefix_path }}/usr/bin/python3"
-  with_items: "{{ prefix_remove_packages }}"
+
+
