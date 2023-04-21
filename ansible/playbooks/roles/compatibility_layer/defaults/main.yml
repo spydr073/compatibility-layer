@@ -55,9 +55,14 @@ package_sets:
 
 prefix_packages:
 
+# TODO - Might not be needed after '--depclean'...
 prefix_remove_packages:
-  - dev-lang/go
-  - dev-lang/go-bootstrap
+  #- dev-lang/go
+  #- dev-lang/go-bootstrap
+
+prefix_reinstall_packages:
+  - dev-util/meson
+  - dev-util/ninja
 
 reframe_venv_dir: /tmp/reframe_venv
 

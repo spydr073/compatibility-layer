@@ -1,16 +1,29 @@
 # Clean up
 ---
 
-- name: "Clean unused dependencies."
+- name: "Run 'emerge --depclean' to remove unused packages."
   ansible.builtin.shell: "emerge --depclean --with-bdeps=n"
+  tags:
+    - cleanup
 
   
-- name: "Remove redundant packages"
+- name: "Remove unused packages that were missed in cleanup."
   community.general.portage:
     package: "{{ item }}"
     state: absent
   with_items: "{{ prefix_remove_packages }}"
   vars:
     ansible_python_interpreter: "{{ gentoo_prefix_path }}/usr/bin/python3"
+  tags:
+    - cleanup
 
 
+- name: "Reinstall packages that that were erroneously removed in cleanup."
+  community.general.portage:
+    package: "{{ item }}"
+    state: present
+  with_items: "{{ prefix_reinstall_packages }}"
+  vars:
+    ansible_python_interpreter: "{{ gentoo_prefix_path }}/usr/bin/python3"
+  tags:
+    - cleanup
