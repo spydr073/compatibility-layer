@@ -52,6 +52,7 @@ Before running the playbook, make sure the following settings are correct, and o
 | package_sets | List of package sets to be installed |
 | prefix_packages | List of additional packages to be installed |
 | prefix_remove_packages | List of packages to be removed after the bootstrap |
+| prefix_reinstall_packages | List of packages that need reinstalled after 'emerge --depclean' |
 | reframe_venv | Path where a virtual environment will be created for the ReFrame installation |
 | symlinks_to_host | List of paths that should get a symlink to the corresponding host path |
 
