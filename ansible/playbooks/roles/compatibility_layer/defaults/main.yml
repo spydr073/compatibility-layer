@@ -60,9 +60,10 @@ prefix_remove_packages:
   #- dev-lang/go
   #- dev-lang/go-bootstrap
 
+# Note: order matters here
 prefix_reinstall_packages:
-  - dev-util/meson
   - dev-util/ninja
+  - dev-util/meson
 
 reframe_venv_dir: /tmp/reframe_venv
 
