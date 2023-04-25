@@ -6,9 +6,9 @@
     state: absent
   with_items: "{{ prefix_remove_packages }}"
 
-- name: Remove intermediate build packages
-  community.general.portage:
-    depclean: true
-    withbdeps: false
+#- name: Remove intermediate build packages
+#  community.general.portage:
+#    depclean: true
+#    withbdeps: false
 
  
