@@ -54,13 +54,12 @@ prefix_locales:
 package_sets:
   - "eessi-{{ eessi_version }}-{{ eessi_host_os }}-{{ eessi_host_arch }}"
 
-# Ensure additional packages are in world (and will not --depclean'ed)
 prefix_packages:
-  - dev-util/ninja
-  - dev-util/meson
+#  - dev-util/ninja
+#  - dev-util/meson
 
 # TODO - Might not be needed after '--depclean'...
-#prefix_remove_packages:
+prefix_remove_packages:
   #- dev-lang/go
   #- dev-lang/go-bootstrap
 
